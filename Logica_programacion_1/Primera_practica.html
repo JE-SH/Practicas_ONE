@@ -1,0 +1,90 @@
+<meta charset="UTF-8"> <!--  -->
+<h1>Primera práctica del curso de lógica de programación parte 1</h1>
+<br>
+Podemos escribir texto sin la necesidad de usar otras etiquetas.
+<br>
+Sin embargo, es necesario agregar <
+<script>
+    document.write('meta charset="UTF-8"');
+</script>
+> para poder visualizar acentuaciones dentro de otros navegadores como explorer.
+<br>
+En el caso de querer agregar operaciones matemáticas debemos usar java script, ya que HTML no puede hacerlas.
+<br>
+Para esto se necesita agregar <
+<script>
+    document.write("script> </script");
+</script>
+> para poder empezar a escribir en java script.
+<br>
+Si queremos escribir dentro del script es necesario agregar " document.write(" ") " poniendo dentro de los parentesis el TEXTO a escribir.
+<br>
+Si se quieren hacer operaciones en vez de agregar comillas dobles dentro del parentesis, se agregan las operaciones en sí.
+<br>
+Por ejemplo: 18+2 =
+<script> document.write(18+2) </script>
+<br>
+<br>
+Se pueden concatenar elementos, ya sea cadena de caracteres y/o números, simplemente remplazando los valores dentro de los paréntesis.
+<br>
+<script> document.write("Estamos en el script concatenando la suma "+ 18 + 2 +", siendo el 2 el número que se sumaría a 18 <br>"); </script>
+
+<script> document.write("Si queremos la media de una suma, o resolver el problema anterior basta con agregar paréntesis donde se quiere realizar la operación en concreto, <br>por ejemplo: 18+20+19/3 no es "+(18+20+19/3) + " sino "+ ((18+20+19)/3)); </script>
+<br>
+<script> document.write("los paréntesis están así: ((18+20+19)/3)"); </script>
+<br>
+De esta forma nos aceguramos que se hace la operación correcta y el resultado se concatena con la cadena de caracteres.
+<br>
+<br>
+<br>
+Recordar siempre que las etiquetas van en minusculas, aunque es posible ponerlas en mayúsculas también.
+<br>
+<h2> Programa </h2>
+Se pueden declarar variables con: var variable = valor;
+<br>
+
+<script>
+var anio=2023;
+
+document.write("Si Joel nació en 2000, tiene "+ (anio-2000));
+
+promedio = (15+41+35)/3;
+document.write("El promedio de (15+41+35)/3 es "+ Math.round(promedio));
+
+edadAndres = 25;
+edadAna = 20;
+edadAdriana = 22;
+
+promedio = (edadAdriana+edadAna+edadAndres)/3;
+
+document.write("<br>El promedio de las edades de Andres, Ana y Andrea es "+ Math.round(promedio)+" redondeando. Sin redondear es "+ promedio);
+
+</script>
+CREE SUS PROPIAS FUNCIONALIDADES
+<script>
+    //CREAR FUNCIÓN*****
+    function saltarLinea(){
+        document.write("<br><br>");
+    }
+
+    var saltoLinea = "<br><br><br>"
+    document.write(saltoLinea+"Ya saltamos 3 líneas");
+    saltarLinea();
+    document.write("Saltamos dos líneas con una función");
+</script>
+<br>
+
+NUEVO SCRIPT PARA FUNCIONES CON PARÁMETROS
+<script>
+    function imprimirconparametros(frase,numero,numeroAsumar)
+    {
+        document.write("<br>La frase es: "+ frase + ", los números son " + numero +" y "+ numeroAsumar)
+        document.write("<br> La suma de los números es " + (numero+numeroAsumar));
+        saltarLinea();
+    }
+
+
+    imprimirconparametros("Hola", 156,1);
+    
+</script>
+saltos 
