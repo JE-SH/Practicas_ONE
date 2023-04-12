@@ -1,0 +1,51 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa IMC</h2>
+<script>
+
+    var nombre = prompt("Escribe tu nombre");
+    var pesoPromp = prompt("Escribe tu peso "+nombre);
+    var alturaPromp = prompt("Escribe tu altura "+ nombre);
+
+
+    function calcularIMCnombre(peso, altura, nombre){
+        var imc = peso/(altura*altura);
+        document.write("El IMC de "+nombre+" es " + imc);
+    }
+    function calcularIMC(peso, altura){
+        return(peso/(altura*altura));
+    }
+
+    calcularIMCnombre(70,1.75,"JOSE");
+
+    document.write("<br>El imc de Juanito es de "+ calcularIMC(50,1.6));
+    
+    imc = calcularIMC(pesoPromp,alturaPromp)
+
+    document.write("<br><br><br> Tu índice de masa corporal "+ nombre+" es de "+ imc );
+</script>
+
+<br>
+MEJORA DE PROGRAMA
+<br>
+
+<script>
+      
+    if(imc < 18.5){ document.write("Insuficiencia ponderal<br>")}
+    
+    if(imc >=18.5){
+        if(imc <= 24.9 ){ document.write("Intervalo normal<br>")}
+    }
+
+    if(imc >25 && imc <= 29.9  ){ document.write("Sobrepeso<br>")}
+
+    if(imc>=30){
+        document.write("Obesidad<br>");
+        if(imc <= 34.9){ document.write(" clase I<br>")} 
+        if(imc>=35){
+            if(imc <= 39.9){ document.write(" clase II<br>");}
+            if(imc>=40){document.write(" clase III<br>");}
+        }
+    }
+
+
+</script>

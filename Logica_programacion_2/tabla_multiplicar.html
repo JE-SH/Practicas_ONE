@@ -1,0 +1,23 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa - Tabla de multiplicar</h2>
+<script>
+
+    var tabla_multiplicar = 5; 
+    var multiplicador=1;
+    function saltarLinea(){ document.write("<br><br><br>") }
+    function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
+    function multiplicacion(){ 
+        return (tabla_multiplicar*multiplicador)
+    }
+
+    while(multiplicador<=10){
+        imprimirFrase(tabla_multiplicar+" X "+multiplicador+" = "+ multiplicacion());
+        multiplicador++;
+    }
+    saltarLinea();
+    for(multiplicador=1;multiplicador<=10;multiplicador++){
+        imprimirFrase(tabla_multiplicar+" X "+multiplicador+" = "+ multiplicacion());
+    }
+    
+
+</script>

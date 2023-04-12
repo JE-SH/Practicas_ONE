@@ -1,0 +1,20 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa - Calcular anio del mundial</h2>
+<script>
+
+    var limite = NaN 
+    var anio_mundial=1930;
+
+    function saltarLinea(){ document.write("<br><br><br>") }
+    function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
+
+    while(isNaN(limite)){ 
+        limite=parseInt(prompt("Escribe el anio limite para mostrar el mundial"));    
+    }
+    while(anio_mundial<=limite){
+        imprimirFrase("Hubo un mundial en el anio "+anio_mundial);
+        anio_mundial = anio_mundial+4;
+    }
+   
+
+</script>

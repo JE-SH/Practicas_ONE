@@ -1,0 +1,13 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa - Imprimir números pares hasta 100</h2>
+<script>
+
+    var totalMiembros=0, totalSumaEdades=0, contador=0;
+    function saltarLinea(){ document.write("<br><br><br>") }
+    function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
+    
+    for(var valor=1;valor<=100;valor++){
+        if(Number.isInteger(valor/2))
+            imprimirFrase(valor);
+    }
+</script>

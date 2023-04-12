@@ -1,0 +1,22 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa - ¿Puedo conducir?</h2>
+<script>
+
+    var edad = parseInt(prompt("¿Cuál es tu edad?"));
+    function saltarLinea(){ document.write("<br><br><br>") }
+    function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
+
+    if(edad>=18){
+        var respuesta = prompt("¿Tienes licencia? Responde 'S' para Si o 'N' para No");
+
+        if(respuesta.toUpperCase()=='S'){
+            imprimirFrase("Puedes conducir")
+        }
+        else{
+            imprimirFrase("No puedes conducir")
+        }
+    }
+    else{
+            imprimirFrase("No puedes conducir")
+        }
+</script>

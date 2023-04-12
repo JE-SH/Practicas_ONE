@@ -1,0 +1,23 @@
+<meta charset="UTF-8"> <!--  -->
+<h2>Programa - Juego de adivinación</h2>
+<script>
+
+    var numeroMax = NaN;
+    while(isNaN(numeroMax)){
+        numeroMax = parseInt(prompt("Escribe el número máximo para divinar en el sorteo "+ numeroMax));
+    }
+    var numero = parseInt(prompt("Escribe un número para divinar en el sorteo del sistema desde 0 hasta "+numeroMax));
+    if(isNaN(numero)){ numero=0;}
+    
+    var numero_sistema;
+    function saltarLinea(){ document.write("<br><br><br>") }
+    function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
+    function sorteo(){
+        return(Math.round(Math.random()*numeroMax))
+    }
+
+    numero_sistema = sorteo();
+    if(numero==numero_sistema){ imprimirFrase("CORRECTO!!!!!");  }
+    else{ imprimirFrase("Lo siento, el número era "+numero_sistema);}
+
+</script>
