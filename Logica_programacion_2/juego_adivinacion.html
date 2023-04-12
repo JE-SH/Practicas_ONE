@@ -3,21 +3,37 @@
 <script>
 
     var numeroMax = NaN;
-    while(isNaN(numeroMax)){
-        numeroMax = parseInt(prompt("Escribe el número máximo para divinar en el sorteo "+ numeroMax));
-    }
-    var numero = parseInt(prompt("Escribe un número para divinar en el sorteo del sistema desde 0 hasta "+numeroMax));
-    if(isNaN(numero)){ numero=0;}
-    
+    var intentos=3;
     var numero_sistema;
+    var numero;
+            
     function saltarLinea(){ document.write("<br><br><br>") }
     function imprimirFrase(frase){ document.write(frase);document.write("<br>"); }
     function sorteo(){
         return(Math.round(Math.random()*numeroMax))
     }
 
-    numero_sistema = sorteo();
-    if(numero==numero_sistema){ imprimirFrase("CORRECTO!!!!!");  }
-    else{ imprimirFrase("Lo siento, el número era "+numero_sistema);}
+
+    while(isNaN(numeroMax)){
+        numeroMax = parseInt(prompt("Escribe el número máximo para divinar en el sorteo "));
+    }
+
+    while(intentos!=0){
+        numero = parseInt(prompt("Escribe un número para adivinar en el sorteo del sistema desde 0 - "+numeroMax));
+        if(isNaN(numero)){ numero=0;}
+        numero_sistema = sorteo();
+        
+        if(numero==numero_sistema){ 
+            imprimirFrase("CORRECTO!!!!!");  
+            break;
+        }
+        else{ 
+            intentos--;
+            alert("Número erroneo. Te quedan "+intentos+" intento(s)");
+        
+        }
+    }
+
+    if(intentos==0){ imprimirFrase("Lo siento, el número era "+numero_sistema);}
 
 </script>
