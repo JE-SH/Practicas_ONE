@@ -1,0 +1,22 @@
+<canvas width="600" height="400">
+
+</canvas>
+<script>
+var pantalla = document.querySelector("canvas")
+var pincel = pantalla.getContext("2d")//pasa el contenido de la pantalla en 2 dimenciones
+//Triángulo 1
+pincel.fillStyle = "black"; // propiedad o característica que se le pasa un valor
+pincel.beginPath();//comienza un camino para el pincel.
+pincel.moveTo(50,50);
+pincel.lineTo(50,400);
+pincel.lineTo(400,400);
+pincel.fill();
+
+pincel.fillStyle = "white"; 
+pincel.beginPath();
+pincel.moveTo(100,175);
+pincel.lineTo(100,350);
+pincel.lineTo(275,350);
+pincel.fill();
+
+</script>
