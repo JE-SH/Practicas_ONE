@@ -1,0 +1,70 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    var xAleatorio;
+    var yAleatorio;
+    var direccion=5;//positivo para derecha, negativo para izquierda
+
+    var RADIO = 10;
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0,0,600,400);
+
+    //---------
+
+    function diseniarCircunferencia(x,y,radio, color){
+        pincel.fillStyle=color;
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }
+ 
+    function limpiarPantalla(){
+        pincel.clearRect(0,0,600,400);
+        
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0,0,600,400);
+
+    }
+
+    function actualizarPantalla(){
+        limpiarPantalla();
+        xAleatorio = sortearPosicion(600);
+        yAleatorio = sortearPosicion(400);
+        diseniarObjetivo(xAleatorio,yAleatorio);
+
+       /* if(x>=600){direccion=-5;}
+        if(x<=0){direccion=5;}
+
+        x+=direccion;*/
+    }
+
+    function diseniarObjetivo(x,y){
+       
+        diseniarCircunferencia(x,y,RADIO+20,"red");
+        diseniarCircunferencia(x,y,RADIO+10,"white");
+        diseniarCircunferencia(x,y,RADIO,"red");
+    }
+
+    function sortearPosicion(maximo){
+        return(Math.floor((Math.random()*(maximo-60)))+30) 
+        //nos aceguramos que los 60 del dametro del circulo se resten y depués se agrega el radio para que se muetre completo en el canvas
+    }
+
+    function verificarTiro(evento){
+
+        x=evento.pageX-pantalla.offsetLeft;
+        y=evento.pageY-pantalla.offsetTop;
+        
+        if (x < (xAleatorio+RADIO) && x >(xAleatorio-RADIO) && y < (yAleatorio+RADIO) && y >(yAleatorio-RADIO))
+        {
+            alert("EXCELENTE TRABAJO!!")
+        }
+    }
+    //-------------
+    
+    
+    setInterval(actualizarPantalla, 1000);
+    pantalla.onclick = verificarTiro;
+</script>

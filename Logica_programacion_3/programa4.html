@@ -1,0 +1,40 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0,0,600,400);
+
+    function diseniarCircunferencia(x,y,radio){
+        pincel.fillStyle="blue";
+        pincel.beginPath();
+        pincel.arc(x,y,radio,0,2*Math.PI);
+        pincel.fill();
+    }
+ 
+    function limpiarPantalla(){
+        pincel.clearRect(0,0,600,400);
+        
+        pincel.fillStyle = "lightgrey";
+        pincel.fillRect(0,0,600,400);
+
+    }
+
+    function actualizarPantalla(){
+        limpiarPantalla();
+        diseniarCircunferencia(x,20,10);
+
+        if(x>=600){direccion=-5;}
+        if(x<=0){direccion=5;}
+
+        x+=direccion;
+        
+    }
+
+    var x=20;
+    var direccion=5;//positivo para derecha, negativo para izquierda
+    setInterval(actualizarPantalla,10) // La función setInterval manda llamar a actualizarPantalla cada .01 segundos (1000 para uno completo). Nótese que no estan los signos de () para llamar a la función.
+
+
+</script>

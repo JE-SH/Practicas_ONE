@@ -1,9 +1,13 @@
+<!DOCTYPE html>
+
 <canvas width="600" height="400"></canvas>
 
 <script>
     var serie2009 = [6, 47, 41, 3, 3];
     var serie2019 = [81, 9, 3, 3, 4];
-    var colores = ["blue","green","yellow", "red","gray"];
+    var serieTexto = [20,20,20,20,20];
+    var navegadores = ["Chrome", "Firefox", "Internet Explorer/Edge", "Safari", "otros"];
+    var colores = ["blue","green","yellow", "red","violet"];
 
 
     function dibujarRectangulo(x, y, base, altura, color) {
@@ -24,14 +28,32 @@
         pincel.fillStyle="black";
         pincel.fillText(texto, x, y);    
     }
+    
+    function dibujarBarra(x,y,serie, color, texto){
+        let altura=0;
 
-    function dibujarBarra(x, y, serie, colores, texto){
-        console.log(serie.lenght);
+        escribirTexto(x,y-10,texto);
+        for (let posicion = 0; posicion < serie.length; posicion++) {
+            //const element = serie[posicion];
+            let porcentaje = serie[posicion];
+            dibujarRectangulo(x,y+altura,50,porcentaje,color[posicion]);
+            altura=altura+porcentaje
+        }
+        
+    }
+
+    dibujarBarra(50,50,serie2009, colores, "2009");
+    dibujarBarra(150,50,serie2019, colores, "2019");
+    dibujarBarra(450,50,serieTexto, colores, "Navegadores");
+    let altura = 65;
+
+    for (let posicion = 0; posicion < serieTexto.length; posicion++) {
+        escribirTexto(510,altura,navegadores[posicion]);
+        altura = altura+serieTexto[posicion];
     }
 
 
-    //Aquí viene el texto faltante
-    dibujarBarra(50, 50, serie2009, colores, "2009");
-    //dibujarBarra(150, 50, serie2019, colores, "2019");
+   
    
 </script>
+</html>
