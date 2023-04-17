@@ -1,0 +1,86 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+    var puedoDibujar = false;
+    var color = "blue";
+    const RADIO = 5;
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+
+    function dibujarCirculo(evento) {
+
+        if(puedoDibujar) {
+            var x = evento.pageX - pantalla.offsetLeft;
+            var y = evento.pageY - pantalla.offsetTop;
+            if (!esPaleta(x-RADIO,y-RADIO)){
+                pincel.fillStyle = color;
+                pincel.beginPath();
+                pincel.arc(x, y, RADIO, 0, 2 * 3.14);
+                pincel.fill();
+            }
+        }
+
+    }
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+    }
+
+    function dibujarPaleta(){
+        pincel.fillStyle="blue";
+        pincel.fillRect(0,0,30,30);
+        pincel.fillStyle="red";
+        pincel.fillRect(30,0,30,30);
+        pincel.fillStyle="green";
+        pincel.fillRect(60,0,30,30);
+
+        pincel.strokeStyle="black"
+        pincel.strokeRect(0,0,30,30);
+        pincel.strokeRect(30,0,30,30);
+        pincel.strokeRect(60,0,30,30);
+    }
+
+    function cambiaColor(evento){
+        let x = evento.pageX - pantalla.offsetLeft;
+        let y = evento.pageY - pantalla.offsetTop;
+        if (x>=0 && x <=30 && y<=30 && y>=0){
+            color="blue";
+        }
+        if (x>30 && x <=60 && y<=30 && y>=0){
+            color="red";
+        }
+        if (x>60 && x <=90 && y<=30 && y>=0){
+            color="green";
+        }
+    }
+
+    function esPaleta(x,y){
+        if (x<=90 && y <= 30){
+            return(true);
+        }
+        else{
+            return(false);
+        }
+    }
+
+    dibujarPaleta();
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    pantalla.onmousedown = habilitarDibujar;
+
+    pantalla.onmouseup = deshabilitarDibujar;
+
+    pantalla.onclick = cambiaColor;
+
+</script>
