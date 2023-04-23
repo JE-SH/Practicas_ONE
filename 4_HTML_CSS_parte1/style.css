@@ -1,0 +1,27 @@
+body{
+    background-color: #cccccc;
+}
+h1{
+    text-align: center;
+    padding: 20px;
+    text-align: center;
+    border: 10px solid #000000;
+    margin: 100px;
+}
+p{
+    font-size: 16px;
+    text-align: center;
+}
+
+em strong{ /*se referencia a la etiqueta en específico. Toma desde la primera etiqueta hasta el hijo menor*/
+    color: red;
+}
+#mision{ /*para referenciar id se usa #*/
+    font-size: 20px;
+}
+#banner{
+    width: 100%;
+}
+.items{/*class van con .*/
+    font-style: italic;
+}
