@@ -1,7 +1,17 @@
-body{
-    background-color: #cccccc;
+.tituloPrincipal{
+    padding-left: 30px;
 }
-h1{
+#banner{
+    width: 100%;
+}
+.principal{
+    background-color: #cccccc;    
+    padding: 20px;
+}
+.tituloCentralizado{
+    text-align: center;
+}
+.margen{
     text-align: center;
     padding: 20px;
     text-align: center;
@@ -19,9 +29,20 @@ em strong{ /*se referencia a la etiqueta en específico. Toma desde la primera e
 #mision{ /*para referenciar id se usa #*/
     font-size: 20px;
 }
-#banner{
-    width: 100%;
+.diferenciales{
+    background: #ffffff;
+    padding: 20px;
 }
-.items{/*class van con .*/
+
+.items{/*class van con ., este permite reutilizar el estilo, con el id no*/
     font-style: italic;
+}
+ul{
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15%;
+}
+.imagenDiferenciales{
+    width: 50%;
 }
